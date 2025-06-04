@@ -69,10 +69,10 @@ Earlier versions requested AI per-field. Now one button sends all three textarea
 ⸻
 
 ## Final Thoughts
-	• I went with Context + useReducer because it’s lightweight for our small app and avoids Redux boilerplate. If this form gets more complex later—say, multiple pages or global user / auth state—we can always swap in Redux or Zustand without rewriting the entire form logic.
-	•	Our AI integration lives in a clearly separated service + hook, so if we switch from OpenAI to another LLM, it’s just a few lines in aiService and our hook.
-	•	Components are truly reusable—InputField, SelectField, TextAreaField each standardize styling, error display, and accessibility. This makes adding a new form step much faster.
-	•	Finally, the “shell + navbar” split gives us a clear layout and makes it easy to add other pages (about page, help docs) alongside the form if needed.
+• I went with Context + useReducer because it’s lightweight for our small app and avoids Redux boilerplate. If this form gets more complex later—say, multiple pages or global user / auth state—we can always swap in Redux or Zustand without rewriting the entire form logic.
+•	Our AI integration lives in a clearly separated service + hook, so if we switch from OpenAI to another LLM, it’s just a few lines in aiService and our hook.
+•	Components are truly reusable—InputField, SelectField, TextAreaField each standardize styling, error display, and accessibility. This makes adding a new form step much faster.
+•	Finally, the “shell + navbar” split gives us a clear layout and makes it easy to add other pages (about page, help docs) alongside the form if needed.
 
 This is just a few straightforward choices to keep the codebase clean and future‐proof built off the requirements provided without making too many assumptions on what enhancements would be a beneficial deliverable for the platform at hand.
 
