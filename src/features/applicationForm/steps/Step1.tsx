@@ -1,7 +1,6 @@
-// src/features/applicationForm/steps/Step1.tsx
-
 import React, { useEffect, useContext } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { ApplicationContext, PersonalInfo } from '../applicationContext';
 import { Button } from '../../../components/Button';
 import { InputField } from '../../../components/InputField';
@@ -10,6 +9,7 @@ import { SelectField } from '../../../components/SelectField';
 interface PersonalFormValues extends PersonalInfo {}
 
 const Step1: React.FC = () => {
+  const { t } = useTranslation();
   const { data, updatePersonal, nextStep, resetApplication } = useContext(ApplicationContext);
 
   const {
@@ -38,140 +38,145 @@ const Step1: React.FC = () => {
     nextStep();
   };
 
+  // Custom validator for National ID: count digits and show remaining if not 10
+  const validateNationalId = (value: string) => {
+    const digitCount = (value.match(/\d/g) || []).length;
+    if (digitCount === 10) return true;
+    const remaining = 10 - digitCount;
+    return t('errors.nationalIdRemaining', { count: remaining });
+  };
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="space-y-4 bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg"
     >
       <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
-        Step 1: Personal Information
+        {t('step1.heading')}
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <InputField
-          label="Name"
+          label={t('labels.name')}
           id="name"
           aria-invalid={!!errors.name}
           aria-describedby={errors.name ? 'name-error' : undefined}
-          {...register('name', { required: 'Name is required' })}
-          error={errors.name?.message}
+          {...register('name', { required: t('errors.nameRequired') })}
+          error={errors.name?.message as string}
         />
 
         <InputField
-          label="National ID"
+          label={t('labels.nationalId')}
           id="nationalId"
           aria-invalid={!!errors.nationalId}
           aria-describedby={errors.nationalId ? 'nationalId-error' : undefined}
           {...register('nationalId', {
-            required: 'National ID is required',
-            pattern: {
-              value: /^\d{10}$/,
-              message: 'National ID must be exactly 10 digits',
-            },
+            required: t('errors.nationalIdRequired'),
+            validate: validateNationalId,
           })}
-          error={errors.nationalId?.message}
+          error={errors.nationalId?.message as string}
         />
 
         <InputField
-          label="Date of Birth"
+          label={t('labels.dob')}
           type="date"
           id="dob"
           aria-invalid={!!errors.dob}
           aria-describedby={errors.dob ? 'dob-error' : undefined}
-          {...register('dob', { required: 'Date of Birth is required' })}
-          error={errors.dob?.message}
+          {...register('dob', { required: t('errors.dobRequired') })}
+          error={errors.dob?.message as string}
         />
 
         <SelectField
-          label="Gender"
+          label={t('labels.gender')}
           id="gender"
           aria-invalid={!!errors.gender}
           aria-describedby={errors.gender ? 'gender-error' : undefined}
-          {...register('gender', { required: 'Gender is required' })}
-          error={errors.gender?.message}
+          {...register('gender', { required: t('errors.genderRequired') })}
+          error={errors.gender?.message as string}
         >
-          <option value="">Select</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
+          <option value="">{t('placeholders.select')}</option>
+          <option value="male">{t('options.male')}</option>
+          <option value="female">{t('options.female')}</option>
+          <option value="other">{t('options.other')}</option>
         </SelectField>
 
         <InputField
-          label="Address"
+          label={t('labels.address')}
           id="address"
           aria-invalid={!!errors.address}
           aria-describedby={errors.address ? 'address-error' : undefined}
-          {...register('address', { required: 'Address is required' })}
-          error={errors.address?.message}
+          {...register('address', { required: t('errors.addressRequired') })}
+          error={errors.address?.message as string}
         />
 
         <InputField
-          label="City"
+          label={t('labels.city')}
           id="city"
           aria-invalid={!!errors.city}
           aria-describedby={errors.city ? 'city-error' : undefined}
-          {...register('city', { required: 'City is required' })}
-          error={errors.city?.message}
+          {...register('city', { required: t('errors.cityRequired') })}
+          error={errors.city?.message as string}
         />
 
         <InputField
-          label="State"
+          label={t('labels.state')}
           id="state"
           aria-invalid={!!errors.state}
           aria-describedby={errors.state ? 'state-error' : undefined}
-          {...register('state', { required: 'State is required' })}
-          error={errors.state?.message}
+          {...register('state', { required: t('errors.stateRequired') })}
+          error={errors.state?.message as string}
         />
 
         <InputField
-          label="Country"
+          label={t('labels.country')}
           id="country"
           aria-invalid={!!errors.country}
           aria-describedby={errors.country ? 'country-error' : undefined}
-          {...register('country', { required: 'Country is required' })}
-          error={errors.country?.message}
+          {...register('country', { required: t('errors.countryRequired') })}
+          error={errors.country?.message as string}
         />
 
         <InputField
-          label="Phone"
+          label={t('labels.phone')}
           id="phone"
           type="tel"
           aria-invalid={!!errors.phone}
           aria-describedby={errors.phone ? 'phone-error' : undefined}
           {...register('phone', {
-            required: 'Phone is required',
+            required: t('errors.phoneRequired'),
             pattern: {
               value: /^[0-9+\-()\s]{7,}$/,
-              message: 'Enter a valid phone number',
+              message: t('errors.invalidPhone'),
             },
           })}
-          error={errors.phone?.message}
+          error={errors.phone?.message as string}
         />
 
         <InputField
-          label="Email"
+          label={t('labels.email')}
           id="email"
           type="email"
           aria-invalid={!!errors.email}
           aria-describedby={errors.email ? 'email-error' : undefined}
           {...register('email', {
-            required: 'Email is required',
+            required: t('errors.emailRequired'),
             pattern: {
               value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-              message: 'Enter a valid email address',
+              message: t('errors.invalidEmail'),
             },
           })}
-          error={errors.email?.message}
+          error={errors.email?.message as string}
         />
       </div>
 
       {/* Reset + Next */}
       <div className="flex justify-between items-center mt-4">
         <Button variant="outline" onClick={resetApplication}>
-          Reset All
+          {t('buttons.resetAll')}
         </Button>
         <Button variant="primary" type="submit" disabled={!isValid}>
-          Next
+          {t('buttons.next')}
         </Button>
       </div>
     </form>

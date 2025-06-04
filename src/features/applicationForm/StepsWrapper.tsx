@@ -27,18 +27,14 @@ const StepsWrapper: React.FC = () => {
   }
 
   return (
-    // 1) flex-1 flex-col: occupy all height from parent <main>
-    // 2) max-w-3xl: center it, but allow it to expand vertically
+
     <div className="flex-1 flex flex-col max-w-3xl mx-auto mt-6 w-full px-4 ">
       {/* Progress bar at top */}
       <div className="mb-4">
         <ProgressBar />
       </div>
 
-      {/*
-        1) flex-1: take all remaining vertical space under ProgressBar
-        2) overflow-y-auto: scroll if the step itself is taller than this area
-      */}
+   
       <div className="flex-1 overflow-y-auto pb-6">
         <Suspense
           fallback={

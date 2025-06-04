@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { ApplicationContext, FamilyInfo } from '../applicationContext';
 import { Button } from '../../../components/Button';
 import { InputField } from '../../../components/InputField';
@@ -8,6 +9,7 @@ import { SelectField } from '../../../components/SelectField';
 interface FamilyFormValues extends FamilyInfo {}
 
 const Step2: React.FC = () => {
+  const { t } = useTranslation();
   const { data, updateFamily, nextStep, prevStep } = useContext(ApplicationContext);
 
   const {
@@ -45,67 +47,77 @@ const Step2: React.FC = () => {
       className="space-y-4 bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-lg"
     >
       <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
-        Step 2: Family & Financial Info
+        {t('step2.heading')}
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <SelectField
-          label="Marital Status"
+          label={t('labels.maritalStatus')}
           id="maritalStatus"
-          {...register('maritalStatus', { required: true })}
-          error={errors.maritalStatus && 'Required'}
+          aria-invalid={!!errors.maritalStatus}
+          aria-describedby={errors.maritalStatus ? 'maritalStatus-error' : undefined}
+          {...register('maritalStatus', { required: t('errors.required') })}
+          error={errors.maritalStatus?.message as string}
         >
-          <option value="">Select</option>
-          <option value="single">Single</option>
-          <option value="married">Married</option>
-          <option value="divorced">Divorced</option>
+          <option value="">{t('placeholders.select')}</option>
+          <option value="single">{t('options.single')}</option>
+          <option value="married">{t('options.married')}</option>
+          <option value="divorced">{t('options.divorced')}</option>
         </SelectField>
 
         <InputField
-          label="Dependents"
+          label={t('labels.dependents')}
           id="dependents"
           type="number"
-          {...register('dependents', { required: true, valueAsNumber: true })}
-          error={errors.dependents && 'Required'}
+          aria-invalid={!!errors.dependents}
+          aria-describedby={errors.dependents ? 'dependents-error' : undefined}
+          {...register('dependents', { required: t('errors.required'), valueAsNumber: true })}
+          error={errors.dependents?.message as string}
         />
 
         <SelectField
-          label="Employment Status"
+          label={t('labels.employmentStatus')}
           id="employmentStatus"
-          {...register('employmentStatus', { required: true })}
-          error={errors.employmentStatus && 'Required'}
+          aria-invalid={!!errors.employmentStatus}
+          aria-describedby={errors.employmentStatus ? 'employmentStatus-error' : undefined}
+          {...register('employmentStatus', { required: t('errors.required') })}
+          error={errors.employmentStatus?.message as string}
         >
-          <option value="">Select</option>
-          <option value="employed">Employed</option>
-          <option value="unemployed">Unemployed</option>
-          <option value="self-employed">Self-Employed</option>
+          <option value="">{t('placeholders.select')}</option>
+          <option value="employed">{t('options.employed')}</option>
+          <option value="unemployed">{t('options.unemployed')}</option>
+          <option value="self-employed">{t('options.selfEmployed')}</option>
         </SelectField>
 
         <InputField
-          label="Monthly Income"
+          label={t('labels.monthlyIncome')}
           id="monthlyIncome"
           type="number"
-          {...register('monthlyIncome', { required: true, valueAsNumber: true })}
-          error={errors.monthlyIncome && 'Required'}
+          aria-invalid={!!errors.monthlyIncome}
+          aria-describedby={errors.monthlyIncome ? 'monthlyIncome-error' : undefined}
+          {...register('monthlyIncome', { required: t('errors.required'), valueAsNumber: true })}
+          error={errors.monthlyIncome?.message as string}
         />
 
         <SelectField
-          label="Housing Status"
+          label={t('labels.housingStatus')}
           id="housingStatus"
-          {...register('housingStatus', { required: true })}
-          error={errors.housingStatus && 'Required'}
+          aria-invalid={!!errors.housingStatus}
+          aria-describedby={errors.housingStatus ? 'housingStatus-error' : undefined}
+          {...register('housingStatus', { required: t('errors.required') })}
+          error={errors.housingStatus?.message as string}
         >
-          <option value="">Select</option>
-          <option value="owned">Owned</option>
-          <option value="rented">Rented</option>
-          <option value="living with family">Living with Family</option>
+          <option value="">{t('placeholders.select')}</option>
+          <option value="owned">{t('options.owned')}</option>
+          <option value="rented">{t('options.rented')}</option>
+          <option value="living with family">{t('options.livingWithFamily')}</option>
         </SelectField>
       </div>
       <div className="flex justify-between mt-4">
         <Button variant="outline" type="button" onClick={prevStep}>
-          Back
+          {t('buttons.back')}
         </Button>
         <Button variant="primary" type="submit" disabled={!isValid}>
-          Next
+          {t('buttons.next')}
         </Button>
       </div>
     </form>

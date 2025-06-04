@@ -1,5 +1,69 @@
 {
-  "Personal Information": "المعلومات الشخصية",
-  "Family & Financial Info": "معلومات الأسرة والمالية",
-  "Situation Descriptions": "وصف الحالة"
+  "appTitle": "دعم اجتماعي حكومي",
+  "step1": {
+    "heading": "الخطوة 1: المعلومات الشخصية"
+  },
+  "step2": {
+    "heading": "الخطوة 2: معلومات الأسرة والمالية"
+  },
+  "labels": {
+    "name": "الاسم",
+    "nationalId": "الرقم القومي",
+    "dob": "تاريخ الميلاد",
+    "gender": "الجنس",
+    "address": "العنوان",
+    "city": "المدينة",
+    "state": "المحافظة",
+    "country": "البلد",
+    "phone": "الهاتف",
+    "email": "البريد الإلكتروني",
+    "maritalStatus": "الحالة الاجتماعية",
+    "dependents": "عدد المعالين",
+    "employmentStatus": "حالة التوظيف",
+    "monthlyIncome": "الدخل الشهري",
+    "housingStatus": "حالة السكن"
+  },
+  "options": {
+    "male": "ذكر",
+    "female": "أنثى",
+    "other": "آخر",
+    "single": "أعزب/عزباء",
+    "married": "متزوج/متزوجة",
+    "divorced": "مطلق/مطلقة",
+    "employed": "موظف/موظفة",
+    "unemployed": "عاطل/عاطلة",
+    "selfEmployed": "عمل حر",
+    "owned": "مملوك",
+    "rented": "مستأجر",
+    "livingWithFamily": "يعيش مع العائلة"
+  },
+  "placeholders": {
+    "select": "اختر"
+  },
+  "errors": {
+    "nameRequired": "الاسم مطلوب",
+    "nationalIdRequired": "الرقم القومي مطلوب",
+    "nationalIdRemaining": "يجب أن يتكون الرقم القومي من 10 أرقام (تبقى {{count}} رقم)",
+    "dobRequired": "تاريخ الميلاد مطلوب",
+    "genderRequired": "الجنس مطلوب",
+    "addressRequired": "العنوان مطلوب",
+    "cityRequired": "المدينة مطلوبة",
+    "stateRequired": "المحافظة مطلوبة",
+    "countryRequired": "البلد مطلوب",
+    "phoneRequired": "الهاتف مطلوب",
+    "invalidPhone": "أدخل رقم هاتف صحيح",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "invalidEmail": "أدخل بريدًا إلكترونيًا صالحًا",
+    "required": "مطلوب"
+  },
+  "buttons": {
+    "resetAll": "إعادة التعيين",
+    "next": "التالي",
+    "back": "رجوع",
+    "english": "English",
+    "arabic": "العربية"
+  },
+  "aria": {
+    "toggleDark": "تبديل الوضع الداكن"
+  }
 }

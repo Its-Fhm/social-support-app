@@ -16,10 +16,11 @@
 
 ## Application Structure
 
-`Project Organization`
-   `components`/ contains generic, reusable UI bits (Button, InputField, SelectField, TextAreaField).
-   `features` / applicationForm holds the wizard, step components, context, and validation logic.
-   `hooks` / and utils/ keep side‐effect logic and helpers modular.
+Project Organization
+
+   -  `components`/ contains generic, reusable UI bits (Button, InputField, SelectField, TextAreaField).
+   - `features` / applicationForm holds the wizard, step components, context, and validation logic.
+   - `hooks` / and utils/ keep side‐effect logic and helpers modular.
 
 ## OpenAI Integration
 

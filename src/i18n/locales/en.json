@@ -1,5 +1,69 @@
 {
-  "Personal Information": "Personal Information",
-  "Family & Financial Info": "Family & Financial Info",
-  "Situation Descriptions": "Situation Descriptions"
+  "appTitle": "GovSocial Support",
+  "step1": {
+    "heading": "Step 1: Personal Information"
+  },
+  "step2": {
+    "heading": "Step 2: Family & Financial Info"
+  },
+  "labels": {
+    "name": "Name",
+    "nationalId": "National ID",
+    "dob": "Date of Birth",
+    "gender": "Gender",
+    "address": "Address",
+    "city": "City",
+    "state": "State",
+    "country": "Country",
+    "phone": "Phone",
+    "email": "Email",
+    "maritalStatus": "Marital Status",
+    "dependents": "Dependents",
+    "employmentStatus": "Employment Status",
+    "monthlyIncome": "Monthly Income",
+    "housingStatus": "Housing Status"
+  },
+  "options": {
+    "male": "Male",
+    "female": "Female",
+    "other": "Other",
+    "single": "Single",
+    "married": "Married",
+    "divorced": "Divorced",
+    "employed": "Employed",
+    "unemployed": "Unemployed",
+    "selfEmployed": "Self-Employed",
+    "owned": "Owned",
+    "rented": "Rented",
+    "livingWithFamily": "Living with Family"
+  },
+  "placeholders": {
+    "select": "Select"
+  },
+  "errors": {
+    "nameRequired": "Name is required",
+    "nationalIdRequired": "National ID is required",
+    "nationalIdRemaining": "National ID must be 10 digits ({{count}} digits remaining)",
+    "dobRequired": "Date of Birth is required",
+    "genderRequired": "Gender is required",
+    "addressRequired": "Address is required",
+    "cityRequired": "City is required",
+    "stateRequired": "State is required",
+    "countryRequired": "Country is required",
+    "phoneRequired": "Phone is required",
+    "invalidPhone": "Enter a valid phone number",
+    "emailRequired": "Email is required",
+    "invalidEmail": "Enter a valid email address",
+    "required": "Required"
+  },
+  "buttons": {
+    "resetAll": "Reset All",
+    "next": "Next",
+    "back": "Back",
+    "english": "English",
+    "arabic": "العربية"
+  },
+  "aria": {
+    "toggleDark": "Toggle Dark Mode"
+  }
 }

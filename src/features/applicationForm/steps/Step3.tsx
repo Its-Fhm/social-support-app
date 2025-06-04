@@ -1,5 +1,3 @@
-// src/features/applicationForm/steps/Step3.tsx
-
 import React, { useEffect, useContext, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
